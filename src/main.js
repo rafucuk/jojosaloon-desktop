@@ -18,6 +18,7 @@ function onReady() {
     app.quit();
     return;
   }
+  app.disableHardwareAcceleration()
   setTray();
   if (isPacked()) {
     openUpdaterWindow();
