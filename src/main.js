@@ -6,6 +6,8 @@ import { openUpdaterWindow } from "./updaterWindow.js";
 
 const singleInstanceLock = app.requestSingleInstanceLock();
 
+app.disableHardwareAcceleration();
+
 app.on("second-instance", (event, argv, cwd) => {
   if (!getMainWindow()) return;
   getMainWindow().show();
@@ -18,7 +20,6 @@ function onReady() {
     app.quit();
     return;
   }
-  app.disableHardwareAcceleration()
   setTray();
   if (isPacked()) {
     openUpdaterWindow();
